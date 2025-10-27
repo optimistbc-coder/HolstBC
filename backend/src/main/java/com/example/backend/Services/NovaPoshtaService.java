@@ -2,6 +2,7 @@ package com.example.backend.Services;
 
 import com.example.backend.DTOs.CityDTO;
 import com.example.backend.DTOs.DepartmentResponse;
+import io.netty.channel.ChannelOption;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
@@ -11,6 +12,8 @@ import org.springframework.web.reactive.function.client.ExchangeStrategies;
 import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Flux;
 import reactor.netty.http.client.HttpClient;
+
+import java.time.Duration;
 
 @Service
 public class NovaPoshtaService {
@@ -22,6 +25,11 @@ public class NovaPoshtaService {
         this.webClient = builder
                 .baseUrl("https://api.novaposhta.ua/v2.0/json/")
                 .clientConnector(new ReactorClientHttpConnector(HttpClient.create()))
+                .clientConnector(new ReactorClientHttpConnector(
+                        HttpClient.create()
+                                .responseTimeout(Duration.ofSeconds(10))
+                                .option(ChannelOption.CONNECT_TIMEOUT_MILLIS, 5000)
+                ))
                 .exchangeStrategies(ExchangeStrategies.builder()
                         .codecs(configurer ->
                                 configurer.defaultCodecs().maxInMemorySize(16 * 1024 * 1024)
@@ -77,7 +85,6 @@ public class NovaPoshtaService {
     """.formatted(apiKey, cityRef, page);
 
         return webClient.post()
-                .uri("https://api.novaposhta.ua/v2.0/json/")
                 .header(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
                 .bodyValue(request)
                 .retrieve()
