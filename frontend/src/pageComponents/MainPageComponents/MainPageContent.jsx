@@ -12,8 +12,8 @@ export default function MainPageContent() {
     const [height, setHeight] = useState(0);
     const [orientation, setOrientation] = useState("h");
 
-    const [originalWidth, setOriginalWidth] = useState(2000);
-    const [originalHeight, setOriginalHeight] = useState(1400);
+    const [originalWidth, setOriginalWidth] = useState(500);
+    const [originalHeight, setOriginalHeight] = useState(400);
 
     const [isSending, setIsSending] = useState(false);
 
@@ -28,7 +28,7 @@ export default function MainPageContent() {
 
     }, [originalHeight, originalWidth]);
 
-    const [priceForSize, setPriceForSize] = useState(4500);
+    const [priceForSize, setPriceForSize] = useState(1000);
 
     return (
         <DefaultComponent>

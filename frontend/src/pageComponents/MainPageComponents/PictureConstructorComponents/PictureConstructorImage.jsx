@@ -3,7 +3,6 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faFileImport} from "@fortawesome/free-solid-svg-icons";
 import {useEffect, useState} from "react";
 import {motion} from "framer-motion"
-import createImage from "../../../utils/imageUtils/createImage.js";
 
 
 export default function PictureConstructorImage({width, height,originalWidth,originalHeight,orientation,setIsCorrectImage,setFileData}) {
@@ -40,7 +39,7 @@ export default function PictureConstructorImage({width, height,originalWidth,ori
 
     return (
         <Flex className={"pictureConstructorContentImage"}>
-            <p>{orientation === "h" ? originalWidth+"x"+originalHeight : originalHeight+"x"+originalWidth}</p>
+            <p>{orientation === "h" ? originalWidth+"x"+originalHeight : originalHeight+"x"+originalWidth}(мм)</p>
             <Box className={"pictureConstructorContentImageImgContainer"}>
                 <motion.img
                     src={TemporaryURL}
@@ -71,6 +70,7 @@ export default function PictureConstructorImage({width, height,originalWidth,ori
                     </Tooltip>
                 )}
             </FileButton>
+            <p>(ДОДАТИ ФОТО)</p>
         </Flex>
     );
 }

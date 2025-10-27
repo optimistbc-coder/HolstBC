@@ -61,7 +61,7 @@ export default function OrderFormContact({setIsContactCorrect,setNameForSending,
                 onChange={(event) => setName(event.currentTarget.value)}
                 rightSectionPointerEvents="all"
                 size={"md"}
-                style={{fontWeight: 600, width: "250px"}}
+                style={{fontWeight: 600, width: "250px",marginTop:"-20px"}}
                 rightSection={
                     <CloseButton
                         aria-label="Clear input"

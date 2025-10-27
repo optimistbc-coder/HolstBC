@@ -69,7 +69,7 @@ export default function OrderFormNovaPoshtaCities({setSelectedCityForDepartments
                 </Tooltip>
             </Flex>
 
-            <Box style={{marginTop: "-5px"}}>
+            <Box style={{marginTop: "-17px"}}>
                 <CustomSelect array={targetCities} value={selectedCity} setValue={setSelectedCity}
                               placeHolder={"Почніть вводити ваш населений пункт"} searchValue={targetCity}
                               onSearch={setTargetCity} title={"Міста"} isCorrect={true}/>

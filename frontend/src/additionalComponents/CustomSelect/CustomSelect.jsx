@@ -36,7 +36,7 @@ export default function CustomSelect({array, setValue, value, placeHolder, searc
             value={value}
             onChange={setValue}
             maxDropdownHeight={250}
-            style={{width: "250px", marginTop: "10px"}}
+            style={{width: "250px", marginTop: "0px"}}
             dropdownOpened={opened}
             onDropdownClose={() => setOpened(false)}
             onDropdownOpen={() => setOpened(true)}

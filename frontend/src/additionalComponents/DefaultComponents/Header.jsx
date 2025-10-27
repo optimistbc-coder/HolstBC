@@ -8,7 +8,7 @@ export default function Header(){
             <Flex className={"headerContent"} justify={"space-between"}>
                 <Flex justify={"center"} align={"center"} className={"headerImageAndText"}>
                     <img src={logo}  alt={"optimist"} onClick={() => window.location.href="/"}/>
-                    <p>Замов картину - збережи емоції на холості</p>
+                    <p>Замов картину - збережи емоції на холсті</p>
                 </Flex>
                 <Flex className={"headerPhoneNumber"} justify={"center"} align={"center"}>
                     <p>+380638989724</p>

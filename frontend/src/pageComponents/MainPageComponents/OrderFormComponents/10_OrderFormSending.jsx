@@ -6,7 +6,11 @@ export default function OrderFormSending({
                                              isCorrectImage,
                                              isCorrectDepartment,
                                              isContactCorrect,
-                                             setIsSending
+                                             setIsSending,
+                                             width,
+                                             height,
+                                             orientation,
+                                             isSelfPickUp
                                          }) {
     const [price, setPrice] = useState(0);
     const [correct, setCorrect] = useState(false);
@@ -23,8 +27,13 @@ export default function OrderFormSending({
         }
     }, [isCorrectImage, isCorrectDepartment, isContactCorrect]);
     return (
-        <Flex style={{marginTop: "50px"}} justify={"center"} direction={"column"} align={"center"} gap={"10px"}>
-            <Text style={{color: "#80cb80", fontWeight: "700", fontSize: "20px"}}>{price}грн</Text>
+        <Flex style={{marginTop: "30px"}} justify={"center"} direction={"column"} align={"center"} gap={"10px"}>
+            <Text style={{
+                color: "#6B7C93",
+                fontWeight: "500",
+            }}>{orientation === "h" ? width : height}x{orientation === "h" ? height : width}(мм)</Text>
+
+            <Text style={{color: "#80cb80", fontWeight: "700", fontSize: "20px", marginTop: "-15px"}}>{price}грн</Text>
             <Button style={{backgroundColor: correct ? "#0078ef" : "#e1e1e1"}} disabled={!correct}
                     onClick={() => setIsSending(true)}>Відправити</Button>
             {!isCorrectImage &&

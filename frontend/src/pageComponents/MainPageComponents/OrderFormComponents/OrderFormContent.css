@@ -39,14 +39,14 @@
 }
 
 .orderFormImprovePictureP{
-    margin-top: 40px;
+    margin-top: 30px;
     font-weight: 650;
     font-size: 22px;
     color: #6B7C93;
 }
 
 .orderFormContact{
-    margin-top: 10px;
+    margin-top: -20px;
 }
 .orderFormContact p{
     font-weight: 650;
@@ -56,7 +56,7 @@
 
 
 .orderFormNovaPoshta{
-    margin-top: 20px;
+    margin-top: -10px;
 }
 .orderFormNovaPoshta p{
     font-weight: 650;

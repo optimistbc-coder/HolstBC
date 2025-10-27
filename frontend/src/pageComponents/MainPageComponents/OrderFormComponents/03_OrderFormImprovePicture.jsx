@@ -46,7 +46,8 @@ export default function OrderFormImprovePicture({setPriceForImproving}) {
                     userSelect: "none",
                     position: "relative",
                     willChange: "transform, opacity",
-                    transform: "translateZ(0)"
+                    transform: "translateZ(0)",
+                    marginTop:"-17px"
 
                 }}
             >

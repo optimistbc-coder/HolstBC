@@ -1,4 +1,4 @@
-import {Chip, Flex} from "@mantine/core";
+import {Chip, Flex, Switch} from "@mantine/core";
 import "./OrderFormContent.css"
 import OrderFormTitle from "./02_OrderFormTitle.jsx";
 import OrderFormImprovePicture from "./03_OrderFormImprovePicture.jsx";
@@ -12,6 +12,7 @@ import OrderFormSending from "./10_OrderFormSending.jsx";
 import axios from "axios";
 import createImage from "../../../utils/imageUtils/createImage.js";
 import sendData from "../../../utils/SendingUtils/sendData.js";
+import OrderFormSelfPickUp from "./OrderFormSelfPickUp.jsx";
 
 export default function OrderFormContent({
                                              priceForPictureSize,
@@ -43,6 +44,9 @@ export default function OrderFormContent({
     const [connectWithUsForSending, setConnectWithUsForSending] = useState("");
     const [wishesForSending, setWishesForSending] = useState("");
 
+    const [isSelfPickup, setIsSelfPickup] = useState(false);
+
+
     useEffect(() => {
         setTotalPrice(priceForPictureSize + priceForImprovingPicture);
     }, [priceForPictureSize, priceForImprovingPicture]);
@@ -59,8 +63,8 @@ export default function OrderFormContent({
                 userSecondName: secondNameForSending,
                 userSurname: surnameForSending,
                 userPhone: phoneForSending,
-                city: cityForSending,
-                department: departmentForSending,
+                city: isSelfPickup ? "Самовивіз" : cityForSending,
+                department: isSelfPickup ? "Самовивіз" : departmentForSending,
                 connectWithUs: connectWithUsForSending,
                 wishes: wishesForSending,
                 imageData: formatedDataOfImage,
@@ -74,7 +78,7 @@ export default function OrderFormContent({
                     const imageURL = await createImage(fileData);
                     sendData(requestBody.userName, requestBody.userSecondName, requestBody.userSurname, requestBody.userPhone, requestBody.city, requestBody.department, requestBody.connectWithUs, requestBody.wishes, requestBody.imageData, requestBody.price, imageURL, requestBody.improveImage);
                 }
-                send().then(r => window.location.href="/thanks");
+                send().then(r => window.location.href = "/thanks");
             } else {
                 console.log(requestBody);
             }
@@ -92,14 +96,27 @@ export default function OrderFormContent({
                               setPhoneForSending={setPhoneForSending} setSecondNameForSending={setSecondNameForSending}
                               setSurnameForSending={setSurnameForSending}/>
             <OrderFormConnectWithUs setConnectWithUsForSending={setConnectWithUsForSending}/>
-            <OrderFormNovaPoshtaCities setSelectedCityForDepartments={setCity} setCityForSending={setCityForSending}/>
-            <OrderFormNovaPoshtaDepartments city={city} setIsCorrectDepartment={setIsCorrectDepartment}
-                                            setDepartmentForSending={setDepartmentForSending}/>
+
+            <Switch label={"Самовивіз з нашого офісу"} style={{marginTop: "40px", color: "#6B7C93", fontWeight: "600"}}
+                    checked={isSelfPickup}
+                    onChange={(event) => setIsSelfPickup(event.currentTarget.checked)}/>
+            {isSelfPickup ?
+                <OrderFormSelfPickUp setIsCorrectDepartment={setIsCorrectDepartment} isSelfPickUp={isSelfPickup}
+                                     setCity={setCity} setDepartment={setDepartmentForSending}/>
+                :
+                <>
+                    <OrderFormNovaPoshtaCities setSelectedCityForDepartments={setCity}
+                                               setCityForSending={setCityForSending}/>
+                    <OrderFormNovaPoshtaDepartments city={city} setIsCorrectDepartment={setIsCorrectDepartment}
+                                                    setDepartmentForSending={setDepartmentForSending}/>
+                </>}
+
             <OrderFormImprovePicture setPriceForImproving={setPriceForImprovingPicture}/>
             <OrderFormWishes setWishesForSending={setWishesForSending}/>
             <OrderFormSending totalPrice={totalPrice} isCorrectImage={isCorrectImage}
                               isCorrectDepartment={isCorrectDepartment} isContactCorrect={isContactCorrect}
-                              setIsSending={setIsSending}/>
+                              setIsSending={setIsSending} width={width} height={height} orientation={orientation}
+                              isSelfPickUp={isSelfPickup}/>
         </Flex>
     )
 }

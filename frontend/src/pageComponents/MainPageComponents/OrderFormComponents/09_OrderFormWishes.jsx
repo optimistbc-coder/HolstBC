@@ -8,7 +8,7 @@ export default function OrderFormWishes({setWishesForSending}) {
     }
 
     return (
-        <Box style={{marginTop: "20px",width:"250px"}} >
+        <Box style={{marginTop: "7px",width:"250px"}} >
             <Textarea label={"Ваші побажання(не обовязково)"} placeholder={"Я б хотів..."} onChange={changeWishes}/>
         </Box>
     )

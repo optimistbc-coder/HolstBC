@@ -22,7 +22,7 @@ export default function PictureConstructorSizeSelection({setOriginalWidth, setOr
         {id: "15", width: 1600, height: 1300, price: 3900},
         {id: "16", width: 2000, height: 1400, price: 4500}];
 
-    const [value, setValue] = useState("16");
+    const [value, setValue] = useState("5");
 
     const setSize = (newValue) => {
         const currentObj = chipValues.find(obj => obj.id === newValue);

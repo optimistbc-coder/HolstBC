@@ -11,7 +11,7 @@ export default function OrderFormConnectWithUs({setConnectWithUsForSending}) {
         setConnectWithUsForSending(telegram + "," + viber + "," + whatsApp);
     }, [telegram, viber, whatsApp]);
     return (
-        <Flex direction={"column"} style={{marginTop: "40px"}}>
+        <Flex direction={"column"} style={{marginTop: "30px"}}>
             <Box style={{width: "280px"}}>
                 <Text style={{fontWeight: "600", color: "#222C3A"}}>Як ми можемо зв'язатися з вами при потребі?</Text>
             </Box>
