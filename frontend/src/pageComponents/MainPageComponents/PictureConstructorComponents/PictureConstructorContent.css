@@ -1,0 +1,92 @@
+.pictureConstructorContentContainer{
+    max-width: 600px;
+    height: 1300px;
+    background-color: white;
+    margin-top: 50px;
+    margin-left: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    border-radius: 10px;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+/* title */
+.pictureConstructorContentTitle p{
+    font-size: 22px;
+    font-weight: 700;
+    color: #222C3A;
+}
+
+/* image */
+.pictureConstructorContentImage{
+    position: relative;
+    flex-direction: column;
+    align-items: center;
+}
+
+.pictureConstructorContentImage p{
+    font-size: 20px;
+    font-weight: bold;
+    position: relative;
+    top: 20px;
+    color: #6B7C93;
+}
+
+.pictureConstructorContentImageImgContainer{
+    width: 320px;
+    height: 330px;
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+}
+.pictureConstructorContentImageImgContainer img{
+    border: 4px solid #a5a4a4;
+
+}
+
+
+/* size selector */
+.pictureConstructorContentSizeSelectorTitle{
+    margin-top: 30px;
+}
+.pictureConstructorContentSizeSelectorTitle p{
+    font-size: 20px;
+    font-weight: 700;
+    color: #6B7C93;
+}
+
+@media (max-width: 1100px) {
+    .pictureConstructorContentContainer{
+        margin-left: 0;
+    }
+}
+
+@media (max-width: 420px) {
+    .pictureConstructorContentTitle p{
+        font-size: 20px;
+    }
+    .pictureConstructorContentSizeSelectorTitle p{
+        font-size: 15px;
+    }
+}
+
+/*orientation selector*/
+.pictureConstructorContentOrientationSelector{
+    position: relative;
+    top: 20px;
+}
+
+.pictureConstructorContentOrientationSelectorChip label{
+    font-size: 14px;
+}
+
+
+@media (max-width:420px) {
+    .pictureConstructorContentOrientationSelector{
+        top: 30px;
+    }
+    .pictureConstructorContentOrientationSelector label{
+        font-size: 11px;
+    }
+}

@@ -1,0 +1,142 @@
+.fullPageContainer {
+    background-color: #f5f8fa;
+    min-width: 100vw;
+    min-height: 100vh;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.fullPageContainer::-webkit-scrollbar {
+    display: none;
+}
+
+/* Header */
+.headerContainer {
+    width: 100%;
+    height: 90px;
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 500;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+
+    overflow: hidden;
+}
+
+
+
+.headerContainer::-webkit-scrollbar {
+    display: none;
+}
+
+
+.headerContent {
+    width: 45%;
+    background-color: transparent;
+}
+@media (max-width: 1550px) {
+    .headerContent{
+        width: 98%;
+    }
+}
+
+.headerImageAndText img{
+    min-width: 50px;
+    min-height: 50px;
+    max-height: 70px;
+    max-width: 70px;
+    cursor: pointer;
+}
+.headerImageAndText p{
+    margin-left: 20px;
+    font-size: 25px;
+    font-weight: 500;
+}
+
+.headerPhoneNumber p{
+    font-size: 25px;
+    font-weight: bold;
+}
+
+@media (max-width: 1825px) {
+    .headerImageAndText p{
+        font-size: 20px;
+    }
+    .headerPhoneNumber p{
+        font-size: 20px;
+    }
+}
+@media (max-width: 700px) {
+    .headerPhoneNumber p{
+        font-size: 15px;
+    }
+    .headerImageAndText p{
+        font-size: 15px;
+    }
+}
+/* Body */
+.bodyContainer {
+    background-color: transparent;
+
+    width: 45%;
+    min-height: 300px;
+    position: relative;
+    flex: 1;
+    overflow-x: hidden;
+    overflow-y: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.bodyContainer::-webkit-scrollbar {
+    display: none;
+}
+
+@media (max-width: 2500px) {
+    .bodyContainer {
+        width: 60%;
+    }
+}
+
+@media (max-width: 1800px) {
+    .bodyContainer {
+        width: 98%;
+        justify-content: center;
+    }
+}
+
+
+/* Footer */
+.footerContainer {
+    width: 100%;
+    background-color: white;
+    height: 150px;
+    flex-shrink: 0;
+    overflow-y: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    justify-content: center;
+    align-items: center;
+    border-top: 1px solid #e4e4e4;
+    margin-top: 30px;
+}
+
+.footerContainer::-webkit-scrollbar {
+    display: none;
+}

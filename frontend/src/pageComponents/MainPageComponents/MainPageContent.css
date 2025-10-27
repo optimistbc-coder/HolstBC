@@ -1,0 +1,11 @@
+.mainPageContentContainer{
+    justify-items: center;
+    flex-direction: row;
+}
+@media (max-width: 1100px) {
+    .mainPageContentContainer {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+}
